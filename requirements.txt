@@ -1,0 +1,17 @@
+# 基础框架
+fastapi==0.110.0
+uvicorn==0.28.0
+pydantic==2.6.0
+
+# 数据库驱动
+mysql-connector-python==8.3.0
+influxdb-client==1.36.0
+
+# MQTT协议
+paho-mqtt==1.6.1
+
+# 环境配置
+python-dotenv==1.0.0
+
+# 时间处理
+python-dateutil==2.9.0

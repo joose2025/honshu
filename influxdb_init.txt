@@ -1,0 +1,38 @@
+# ==============================================
+# 红树林垃圾识别监测系统 - InfluxDB初始化指南
+# ==============================================
+
+# 1. 安装InfluxDB（Windows为例）
+#    下载地址: https://portal.influxdata.com/downloads/
+#    安装完成后启动服务:
+#    - 命令行: influxd
+#    - 服务管理: services.msc 找到 InfluxDB 启动
+
+# 2. 创建Bucket（时序数据存储桶）
+
+#    方法一：使用InfluxDB CLI
+#    1. 打开命令行，执行: influx
+#    2. 创建组织:
+#       > org create --name mangrove_org --description "红树林项目组织"
+#    3. 创建Bucket:
+#       > bucket create --name water_quality --org mangrove_org --retention 7d
+
+#    方法二：使用Web UI（推荐新手）
+#    1. 访问: http://localhost:8086
+#    2. 登录后创建组织和Bucket
+#    3. 组织名: mangrove_org
+#    4. Bucket名: water_quality
+
+# 3. 创建Token（访问令牌）
+#    1. 在Web UI中点击左侧菜单 "Data" -> "Tokens"
+#    2. 点击 "Generate Token" -> "Read/Write Token"
+#    3. 选择刚才创建的Bucket
+#    4. 复制生成的Token，替换.env文件中的 INFLUXDB_TOKEN
+
+# ==============================================
+# .env文件中的InfluxDB配置:
+# INFLUXDB_URL=http://localhost:8086
+# INFLUXDB_TOKEN=your_token_here
+# INFLUXDB_ORG=mangrove_org
+# INFLUXDB_BUCKET=water_quality
+# ==============================================
