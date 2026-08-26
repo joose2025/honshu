@@ -1,0 +1,4 @@
+.env
+influxdb_data/
+__pycache__/
+*.log
