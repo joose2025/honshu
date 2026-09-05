@@ -37,10 +37,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# 添加CORS中间件
+# 添加CORS中间件（允许所有来源访问，方便部署和联调）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

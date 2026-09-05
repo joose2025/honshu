@@ -16,8 +16,8 @@ from datetime import datetime, timedelta
 from typing import Optional
 from config import INFLUXDB_CONFIG, WATER_QUALITY_RULES
 
-# InfluxDB CLI路径
-INFLUXDB_CLI = "c:\\Users\\joose\\OneDrive\\Desktop\\AzurLaneAutoScript\\influxdb3-core-3.10.5-windows_amd64\\influxdb3.exe"
+# InfluxDB CLI路径（通过环境变量配置，默认使用系统 PATH 中的 influxdb3）
+INFLUXDB_CLI = os.getenv("INFLUXDB_CLI_PATH", "influxdb3")
 
 
 def _execute_influxdb_query(sql_query):

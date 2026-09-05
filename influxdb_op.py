@@ -6,6 +6,7 @@ InfluxDB操作模块
 """
 import subprocess
 import json
+import os
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime
@@ -125,7 +126,7 @@ def _cli_query(sql_query):
     try:
         # 构建命令
         cmd = [
-            "c:\\Users\\joose\\OneDrive\\Desktop\\AzurLaneAutoScript\\influxdb3-core-3.10.5-windows_amd64\\influxdb3.exe",
+            os.getenv("INFLUXDB_CLI_PATH", "influxdb3"),
             "query",
             "--database", INFLUXDB_CONFIG['bucket'],
             "--token", INFLUXDB_CONFIG['token'],
